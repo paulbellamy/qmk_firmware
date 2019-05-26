@@ -25,7 +25,9 @@ enum custom_keycodes {
 #define S_F12 LSFT(KC_F12)
 
 // Tap/hold alt/ctrl buttons
-#define KC_ALLF RALT_T(KC_LEFT) // hold alt, tap left
+#define LCTL_GR LCTL_T(KC_GRV) // hold ctrl, tap grave
+#define RALT_LF RALT_T(KC_LEFT) // hold alt, tap left
+#define RCTL_UP RCTL_T(KC_UP) // hold ctrl, tap up
 
 // Go to SYMB layer
 #define SYM_T   TG(_SYMB)
@@ -50,7 +52,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┐       ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      KC_LSPO ,KC_Z    ,KC_X    ,KC_C    ,KC_V    ,KC_B    ,KC_ADPD ,KC_PGUP ,        KC_HOME ,KC_ADEN ,KC_N    ,KC_M    ,KC_COMM ,KC_DOT  ,KC_SLSH ,KC_RSPC ,
   //├────────┼────────┼────────┼────────┼────┬───┴────┬───┼────────┼────────┤       ├────────┼────────┼───┬────┴───┬────┼────────┼────────┼────────┼────────┤
-     NAV_L   ,KC_LCTL ,KC_GRV  ,KC_LALT ,     KC_LGUI ,    KC_BSPC ,KC_DEL  ,        KC_ENT  ,KC_SPC  ,    KC_RGUI ,     KC_ALLF ,KC_DOWN ,KC_UP   ,KC_NART
+     NAV_L   ,LCTL_GR ,KC_GRV  ,KC_LALT ,     KC_LGUI ,    KC_BSPC ,KC_DEL  ,        KC_ENT  ,KC_SPC  ,    KC_RGUI ,     RALT_LF ,KC_DOWN ,RCTL_UP ,KC_NART
   //└────────┴────────┴────────┴────────┘    └────────┘   └────────┴────────┘       └────────┴────────┘   └────────┘    └────────┴────────┴────────┴────────┘
   ),
 
