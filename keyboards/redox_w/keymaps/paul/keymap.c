@@ -113,13 +113,13 @@ void matrix_scan_user(void) {
             set_led_off;
             break;
         case _NUM:
-            set_led_blue;
+            set_led_red;
             break;
         case _NAV:
             set_led_green;
             break;
         case _KBD:
-            set_led_red;
+            set_led_blue;
             break;
         default:
             break;
