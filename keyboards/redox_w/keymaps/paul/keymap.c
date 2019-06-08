@@ -22,10 +22,11 @@ enum custom_keycodes {
 };
 
 // Shortcuts to make keymap layout table more readable
-#define VOLUP   KC__VOLUP
-#define VOLDOWN KC__VOLDOWN
+#define C_F12   LCTL(KC_F12)
+#define LOCK    LCTL(LGUI(KC_Q))
 #define MUTE    KC__MUTE
-#define C_F12 LCTL(KC_F12)
+#define VOLDOWN KC__VOLDOWN
+#define VOLUP   KC__VOLUP
 
 // Tap/hold alt/ctrl buttons
 #define RALT_LF RALT_T(KC_LEFT) // hold alt, tap left
@@ -97,7 +98,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┤                         ├────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      XXXXXXX ,XXXXXXX ,KC_MS_L ,KC_MS_D ,KC_MS_R ,KC_WH_D ,XXXXXXX ,                          XXXXXXX ,XXXXXXX ,KC_F4   ,KC_F5   ,KC_F6   ,XXXXXXX ,XXXXXXX ,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┐       ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     _______ ,KC_SLEP ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,_______ ,XXXXXXX ,        XXXXXXX ,_______ ,XXXXXXX ,KC_F1   ,KC_F2   ,KC_F3   ,XXXXXXX ,_______ ,
+     _______ ,KC_SLEP ,LOCK    ,XXXXXXX ,XXXXXXX ,XXXXXXX ,_______ ,XXXXXXX ,        XXXXXXX ,_______ ,XXXXXXX ,KC_F1   ,KC_F2   ,KC_F3   ,XXXXXXX ,_______ ,
   //├────────┼────────┼────────┼────────┼────┬───┴────┬───┼────────┼────────┤       ├────────┼────────┼───┬────┴───┬────┼────────┼────────┼────────┼────────┤
      XXXXXXX ,_______ ,XXXXXXX ,_______ ,     _______ ,    KC_BTN1 ,KC_BTN2 ,        XXXXXXX ,XXXXXXX ,    _______ ,     KC_RALT ,XXXXXXX ,KC_RCTL ,XXXXXXX
   //└────────┴────────┴────────┴────────┘    └────────┘   └────────┴────────┘       └────────┴────────┘   └────────┘    └────────┴────────┴────────┴────────┘
