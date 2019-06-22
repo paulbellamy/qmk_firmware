@@ -194,24 +194,34 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 };
 
-void matrix_scan_user(void) {
-    uint8_t layer = biton32(layer_state);
+// red and blue are switched for some reason
+void update_led(void) {
+  set_led_off;
+  switch (biton32(layer_state)) {
+    case STITCH:
+      set_led_yellow;
+      break;
+    case NUM:
+      set_led_red;
+      break;
+    case NAV:
+      set_led_green;
+      break;
+    case KBD:
+      set_led_blue;
+      break;
+    default:
+      if (biton32(default_layer_state) == CORNE) {
+        set_led_magenta;
+      }
+      break;
+  }
+}
 
-    switch (layer) {
-        case _QWERTY:
-            set_led_off;
-            break;
-        case _NUM:
-            set_led_red;
-            break;
-        case _NAV:
-            set_led_green;
-            break;
-        case _KBD:
-            set_led_blue;
-            break;
-        default:
-            break;
-    }
+void matrix_scan_user(void) {
+  // must be triggered to
+  // - activate a layer color
+  // - de-activate a layer color
+  update_led();
 };
 
