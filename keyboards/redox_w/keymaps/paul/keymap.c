@@ -6,26 +6,19 @@ extern keymap_config_t keymap_config;
 // The underscores don't mean anything - you can have a layer called STUFF or any other name.
 // Layer names don't all need to be of the same length, obviously, and you can also skip them
 // entirely and just use numbers.
-#define _QWERTY 0
-// "Stitching" layers. Replaces space with the inter-word character. Esc to exit
-#define _STITCH 1 // enter stitching mode
-#define _CAMEL 2
-#define _KEBAB 3
-#define _SNAKE 4
-// Numpad on right, symbols on left
-#define _NUM 5
-// Navigation and movement helpers, volume, arrows, etc
-#define _NAV 6
-// keyboard specific system-type stuff, mouse movements, F1-F12, keyboard reset, etc
-#define _KBD 7
-
-enum custom_keycodes {
-  QWERTY = SAFE_RANGE,
+enum layers {
+  // Base layers
+  QWERTY,
+  // "Stitching" layers. Replaces space with the inter-word character. Esc to exit
+  STITCH, // enter stitching mode, this could be done with leaders or macros instead...
   CAMEL,
   KEBAB,
   SNAKE,
+  // Numpad on right, symbols on left
   NUM,
+  // Navigation and movement helpers, volume, arrows, etc
   NAV,
+  // keyboard specific system-type stuff, mouse movements, F1-F12, keyboard reset, etc
   KBD,
 };
 
@@ -41,30 +34,31 @@ enum custom_keycodes {
 #define RCTL_UP RCTL_T(KC_UP) // hold ctrl, tap up
 
 // Stitching entry/exit
-#define STCH_ESC LT(_STITCH, KC_ESC) // hold stitch-entry layer, tap esc
-#define CAMEL_L TG(_CAMEL)
-#define KEBAB_L TG(_KEBAB)
-#define SNAKE_L TG(_SNAKE)
+#define STCH_ESC LT(STITCH, KC_ESC) // hold stitch-entry layer, tap esc
+#define CAMEL_L TG(CAMEL)
+#define KEBAB_L TG(KEBAB)
+#define SNAKE_L TG(SNAKE)
 // Stitching space-key values
 #define CAPITAL OSM(MOD_LSFT)
 
 // Go to NUM layer
-#define NUM_BSPC LT(_NUM, KC_BSPC)
-#define NUM_SPC LT(_NUM, KC_SPC)
+#define NUM_BSPC LT(NUM, KC_BSPC)
+#define NUM_SPC LT(NUM, KC_SPC)
 
 // Go to NAV layer
-#define NAV_L  MO(_NAV)
-#define NAV_DEL LT(_NAV, KC_DEL)
-#define NAV_ENT LT(_NAV, KC_ENT)
-#define NAV_RT LT(_NAV, KC_RGHT)
+#define NAV_L  MO(NAV)
+#define NAV_DEL LT(NAV, KC_DEL)
+#define NAV_ENT LT(NAV, KC_ENT)
+#define NAV_RT LT(NAV, KC_RGHT)
 
 // Go to KBD layer
-#define KBD_PGDN LT(_KBD, KC_PGDN)
-#define KBD_END LT(_KBD, KC_END)
+#define KBD_L    MO(KBD)
+#define KBD_PGDN LT(KBD, KC_PGDN)
+#define KBD_END LT(KBD, KC_END)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-  [_QWERTY] = LAYOUT(
+  [QWERTY] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                                           ┌────────┬────────┬────────┬────────┬────────┬────────┐
      STCH_ESC,KC_1    ,KC_2    ,KC_3    ,KC_4    ,KC_5    ,                                            KC_6    ,KC_7    ,KC_8    ,KC_9    ,KC_0    ,KC_MINS ,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐                         ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
@@ -78,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //└────────┴────────┴────────┴────────┘    └────────┘   └────────┴────────┘       └────────┴────────┘   └────────┘    └────────┴────────┴────────┴────────┘
   ),
 
-  [_STITCH] = LAYOUT(
+  [STITCH] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                                           ┌────────┬────────┬────────┬────────┬────────┬────────┐
      _______ ,_______ ,_______ ,_______ ,_______ ,_______ ,                                            _______ ,_______ ,_______ ,_______ ,_______ ,_______ ,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐                         ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
@@ -92,7 +86,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //└────────┴────────┴────────┴────────┘    └────────┘   └────────┴────────┘       └────────┴────────┘   └────────┘    └────────┴────────┴────────┴────────┘
   ),
 
-  [_CAMEL] = LAYOUT(
+  [CAMEL] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                                           ┌────────┬────────┬────────┬────────┬────────┬────────┐
      CAMEL_L ,_______ ,_______ ,_______ ,_______ ,_______ ,                                            _______ ,_______ ,_______ ,_______ ,_______ ,_______ ,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐                         ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
@@ -106,7 +100,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //└────────┴────────┴────────┴────────┘    └────────┘   └────────┴────────┘       └────────┴────────┘   └────────┘    └────────┴────────┴────────┴────────┘
   ),
 
-  [_KEBAB] = LAYOUT(
+  [KEBAB] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                                           ┌────────┬────────┬────────┬────────┬────────┬────────┐
      KEBAB_L ,_______ ,_______ ,_______ ,_______ ,_______ ,                                            _______ ,_______ ,_______ ,_______ ,_______ ,_______ ,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐                         ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
@@ -120,7 +114,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //└────────┴────────┴────────┴────────┘    └────────┘   └────────┴────────┘       └────────┴────────┘   └────────┘    └────────┴────────┴────────┴────────┘
   ),
 
-  [_SNAKE] = LAYOUT(
+  [SNAKE] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                                           ┌────────┬────────┬────────┬────────┬────────┬────────┐
      SNAKE_L ,_______ ,_______ ,_______ ,_______ ,_______ ,                                            _______ ,_______ ,_______ ,_______ ,_______ ,_______ ,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐                         ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
@@ -134,7 +128,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //└────────┴────────┴────────┴────────┘    └────────┘   └────────┴────────┘       └────────┴────────┘   └────────┘    └────────┴────────┴────────┴────────┘
   ),
 
-  [_NUM] = LAYOUT(
+  [NUM] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                                           ┌────────┬────────┬────────┬────────┬────────┬────────┐
      _______ ,_______ ,_______ ,_______ ,_______ ,_______ ,                                            _______ ,_______ ,_______ ,_______ ,_______ ,_______ ,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐                         ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
@@ -148,7 +142,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //└────────┴────────┴────────┴────────┘    └────────┘   └────────┴────────┘       └────────┴────────┘   └────────┘    └────────┴────────┴────────┴────────┘
   ),
 
-  [_NAV] = LAYOUT(
+  [NAV] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                                           ┌────────┬────────┬────────┬────────┬────────┬────────┐
      _______ ,KC_BRMD ,KC_BRMU ,KC_F3   ,KC_F4   ,KC_F5   ,                                            KC_MPLY ,KC_MFFD ,MUTE    ,VOLDOWN ,VOLUP   ,XXXXXXX ,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐                         ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
