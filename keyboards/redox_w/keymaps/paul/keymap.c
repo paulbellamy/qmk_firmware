@@ -31,7 +31,6 @@ enum layers {
 #define CTRL_ESC LCTL_T(KC_ESC)
 
 // Shortcuts to make keymap layout table more readable
-#define C_F12   LCTL(KC_F12)
 #define LOCK    LCTL(LGUI(KC_Q))
 #define MUTE    KC__MUTE
 #define VOLDOWN KC__VOLDOWN
@@ -42,7 +41,7 @@ enum layers {
 #define RCTL_UP RCTL_T(KC_UP) // hold ctrl, tap up
 
 // Stitching entry/exit
-#define STCH_ESC LT(STITCH, KC_ESC) // hold stitch-entry layer, tap esc
+#define STCH_F12 LT(STITCH, KC_F12) // hold stitch-entry layer, tap F12
 #define CAMEL_L TG(CAMEL)
 #define KEBAB_L TG(KEBAB)
 #define SNAKE_L TG(SNAKE)
@@ -68,11 +67,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [QWERTY] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                                           ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     STCH_ESC,KC_1    ,KC_2    ,KC_3    ,KC_4    ,KC_5    ,                                            KC_6    ,KC_7    ,KC_8    ,KC_9    ,KC_0    ,KC_MINS ,
+     CTRL_ESC,KC_1    ,KC_2    ,KC_3    ,KC_4    ,KC_5    ,                                            KC_6    ,KC_7    ,KC_8    ,KC_9    ,KC_0    ,KC_MINS ,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐                         ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_TAB  ,KC_Q    ,KC_W    ,KC_E    ,KC_R    ,KC_T    ,C_F12   ,                          KC_BSLS ,KC_Y    ,KC_U    ,KC_I    ,KC_O    ,KC_P    ,KC_EQL  ,
+     KC_TAB  ,KC_Q    ,KC_W    ,KC_E    ,KC_R    ,KC_T    ,STCH_F12,                          KC_BSLS ,KC_Y    ,KC_U    ,KC_I    ,KC_O    ,KC_P    ,KC_EQL  ,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┤                         ├────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     STCH_ESC,KC_A    ,KC_S    ,KC_D    ,KC_F    ,KC_G    ,KC_LBRC ,                          KC_RBRC ,KC_H    ,KC_J    ,KC_K    ,KC_L    ,KC_SCLN ,KC_QUOT ,
+     CTRL_ESC,KC_A    ,KC_S    ,KC_D    ,KC_F    ,KC_G    ,KC_LBRC ,                          KC_RBRC ,KC_H    ,KC_J    ,KC_K    ,KC_L    ,KC_SCLN ,KC_QUOT ,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┐       ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      KC_LSFT ,KC_Z    ,KC_X    ,KC_C    ,KC_V    ,KC_B    ,KBD_PGDN,KC_PGUP ,        KC_HOME ,KBD_END ,KC_N    ,KC_M    ,KC_COMM ,KC_DOT  ,KC_SLSH ,KC_RSFT ,
   //├────────┼────────┼────────┼────────┼────┬───┴────┬───┼────────┼────────┤       ├────────┼────────┼───┬────┴───┬────┼────────┼────────┼────────┼────────┤
