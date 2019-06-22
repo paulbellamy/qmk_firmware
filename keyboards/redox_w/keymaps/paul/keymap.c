@@ -9,7 +9,7 @@ extern keymap_config_t keymap_config;
 enum layers {
   // Base layers
   QWERTY,
-  CORNE, // simulate a corne keyboard
+  CRKBD, // simulate a crkbd keyboard by disabling a bunch of buttons.
   // "Stitching" layers. Replaces space with the inter-word character. Esc to exit
   STITCH, // enter stitching mode, this could be done with leaders or macros instead...
   CAMEL,
@@ -25,7 +25,7 @@ enum layers {
 
 // Base layers
 #define QWRTY_L DF(QWERTY)
-#define CORNE_L DF(CORNE)
+#define CRKBD_L DF(CRKBD)
 
 // Corne-specific buttons
 #define CTRL_ESC LCTL_T(KC_ESC)
@@ -80,7 +80,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //└────────┴────────┴────────┴────────┘    └────────┘   └────────┴────────┘       └────────┴────────┘   └────────┘    └────────┴────────┴────────┴────────┘
   ),
 
-  [CORNE] = LAYOUT(
+  [CRKBD] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                                           ┌────────┬────────┬────────┬────────┬────────┬────────┐
      XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,                                            XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐                         ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
@@ -184,7 +184,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐                         ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      XXXXXXX ,RESET   ,XXXXXXX ,KC_MS_U ,XXXXXXX ,KC_WH_U ,XXXXXXX ,                          XXXXXXX ,QWRTY_L ,KC_F7   ,KC_F8   ,KC_F9   ,XXXXXXX ,XXXXXXX ,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┤                         ├────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     XXXXXXX ,XXXXXXX ,KC_MS_L ,KC_MS_D ,KC_MS_R ,KC_WH_D ,XXXXXXX ,                          XXXXXXX ,CORNE_L ,KC_F4   ,KC_F5   ,KC_F6   ,XXXXXXX ,XXXXXXX ,
+     XXXXXXX ,XXXXXXX ,KC_MS_L ,KC_MS_D ,KC_MS_R ,KC_WH_D ,XXXXXXX ,                          XXXXXXX ,CRKBD_L ,KC_F4   ,KC_F5   ,KC_F6   ,XXXXXXX ,XXXXXXX ,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┐       ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      _______ ,KC_SLEP ,LOCK    ,XXXXXXX ,XXXXXXX ,XXXXXXX ,_______ ,XXXXXXX ,        XXXXXXX ,_______ ,XXXXXXX ,KC_F1   ,KC_F2   ,KC_F3   ,XXXXXXX ,_______ ,
   //├────────┼────────┼────────┼────────┼────┬───┴────┬───┼────────┼────────┤       ├────────┼────────┼───┬────┴───┬────┼────────┼────────┼────────┼────────┤
@@ -211,7 +211,7 @@ void update_led(void) {
       set_led_blue;
       break;
     default:
-      if (biton32(default_layer_state) == CORNE) {
+      if (biton32(default_layer_state) == CRKBD) {
         set_led_magenta;
       }
       break;
