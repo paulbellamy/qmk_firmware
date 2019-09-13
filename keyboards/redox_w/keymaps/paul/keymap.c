@@ -54,7 +54,6 @@ enum layers {
 
 // Go to NAV layer
 #define NAV_L  MO(NAV)
-#define NAV_DEL LT(NAV, KC_DEL)
 #define NAV_ENT LT(NAV, KC_ENT)
 #define NAV_RT LT(NAV, KC_RGHT)
 
@@ -75,7 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┐       ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      KC_LSFT ,KC_Z    ,KC_X    ,KC_C    ,KC_V    ,KC_B    ,KBD_PGDN,KC_PGUP ,        KC_HOME ,KBD_END ,KC_N    ,KC_M    ,KC_COMM ,KC_DOT  ,KC_SLSH ,KC_RSFT ,
   //├────────┼────────┼────────┼────────┼────┬───┴────┬───┼────────┼────────┤       ├────────┼────────┼───┬────┴───┬────┼────────┼────────┼────────┼────────┤
-     NAV_L   ,KC_LCTL ,KC_GRV  ,KC_LALT ,     KC_LGUI ,    NUM_BSPC,NAV_DEL ,        NAV_ENT ,NUM_SPC ,    KC_RGUI ,     RALT_LF ,KC_DOWN ,RCTL_UP ,NAV_RT
+     NAV_L   ,KC_LCTL ,KC_GRV  ,KC_LALT ,     KC_LGUI ,    NUM_BSPC,CTRL_ESC,        NAV_ENT ,NUM_SPC ,    KC_RGUI ,     RALT_LF ,KC_DOWN ,RCTL_UP ,NAV_RT
   //└────────┴────────┴────────┴────────┘    └────────┘   └────────┴────────┘       └────────┴────────┘   └────────┘    └────────┴────────┴────────┴────────┘
   ),
 
@@ -165,7 +164,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [NAV] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                                           ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     _______ ,KC_BRMD ,KC_BRMU ,KC_F3   ,KC_F4   ,KC_F5   ,                                            KC_MPLY ,KC_MFFD ,MUTE    ,VOLDOWN ,VOLUP   ,XXXXXXX ,
+     _______ ,KC_BRMD ,KC_BRMU ,KC_F3   ,KC_F4   ,KC_F5   ,                                            KC_MPLY ,KC_MFFD ,MUTE    ,VOLDOWN ,VOLUP   ,KC_DEL  ,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐                         ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      XXXXXXX ,KC_BRMD ,KC_BRMU ,KC_F3   ,KC_F4   ,KC_F5   ,KC_F6   ,                          KC_MRWD ,KC_MPLY ,KC_MFFD ,MUTE    ,VOLDOWN ,VOLUP   ,XXXXXXX ,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┤                         ├────────┼────────┼────────┼────────┼────────┼────────┼────────┤
