@@ -41,6 +41,7 @@ enum custom_keycodes {
 #define MUTE    KC__MUTE
 #define VOLDOWN KC__VOLDOWN
 #define VOLUP   KC__VOLUP
+#define EMOJI   LCTL(LGUI(KC_SPC)) // Emoji keyboard on osx
 
 // Tap/hold alt/ctrl buttons
 #define RALT_LF RALT_T(KC_LEFT) // hold alt, tap left
@@ -158,7 +159,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                                           ┌────────┬────────┬────────┬────────┬────────┬────────┐
      _______ ,KC_EXLM ,KC_AT   ,KC_HASH ,KC_DLR  ,KC_PERC ,                                            KC_CIRC ,KC_AMPR ,KC_ASTR ,KC_LPRN ,KC_RPRN ,_______ ,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐                         ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     _______ ,KC_EXLM ,KC_AT   ,KC_LCBR ,KC_RCBR ,KC_BSLS ,_______ ,                          _______ ,KC_SLASH,KC_7    ,KC_8    ,KC_9    ,KC_MINS ,_______ ,
+     _______ ,KC_EXLM ,KC_AT   ,KC_LCBR ,KC_RCBR ,KC_BSLS ,EMOJI   ,                          _______ ,KC_SLASH,KC_7    ,KC_8    ,KC_9    ,KC_MINS ,_______ ,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┤                         ├────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      _______ ,KC_HASH ,KC_DLR  ,KC_LBRC ,KC_RBRC ,KC_GRV  ,_______ ,                          _______ ,KC_ASTR ,KC_4    ,KC_5    ,KC_6    ,KC_PLUS ,_______ ,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┐       ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┤
