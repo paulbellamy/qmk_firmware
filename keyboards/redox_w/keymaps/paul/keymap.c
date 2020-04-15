@@ -43,10 +43,6 @@ enum custom_keycodes {
 #define VOLUP   KC__VOLUP
 #define EMOJI   LCTL(LGUI(KC_SPC)) // Emoji keyboard on osx
 
-// Tap/hold alt/ctrl buttons
-#define RALT_LF RALT_T(KC_LEFT) // hold alt, tap left
-#define RCTL_UP RCTL_T(KC_UP) // hold ctrl, tap up
-
 // Stitching entry/exit
 #define STCH_F12 LT(STITCH, KC_F12) // hold stitch-entry layer, tap F12
 #define CAMEL_L TG(CAMEL)
@@ -62,7 +58,6 @@ enum custom_keycodes {
 // Go to NAV layer
 #define NAV_L  MO(NAV)
 #define NAV_ENT LT(NAV, KC_ENT)
-#define NAV_RT LT(NAV, KC_RGHT)
 
 // Go to KBD layer
 #define KBD_L    MO(KBD)
@@ -81,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┐       ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      KC_LSFT ,KC_Z    ,KC_X    ,KC_C    ,KC_V    ,KC_B    ,KBD_PGDN,KC_PGUP ,        KC_HOME ,KBD_END ,KC_N    ,KC_M    ,KC_COMM ,KC_DOT  ,KC_SLSH ,KC_RSFT ,
   //├────────┼────────┼────────┼────────┼────┬───┴────┬───┼────────┼────────┤       ├────────┼────────┼───┬────┴───┬────┼────────┼────────┼────────┼────────┤
-     NAV_L   ,KC_GRV  ,KC_BSLS ,KC_LALT ,     KC_LGUI ,    NUM_BSPC,CTRL_ESC,        NAV_ENT ,NUM_SPC ,    KC_RGUI ,     RALT_LF ,KC_DOWN ,RCTL_UP ,NAV_RT
+     NAV_L   ,KC_GRV  ,KC_BSLS ,KC_LALT ,     KC_LGUI ,    NUM_BSPC,CTRL_ESC,        NAV_ENT ,NUM_SPC ,    KC_RGUI ,     KC_RALT ,KC_BTN4 ,KC_RCTL ,NAV_L
   //└────────┴────────┴────────┴────────┘    └────────┘   └────────┴────────┘       └────────┴────────┘   └────────┘    └────────┴────────┴────────┴────────┘
   ),
 
@@ -193,7 +188,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┐       ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      _______ ,KC_SLEP ,LOCK    ,XXXXXXX ,XXXXXXX ,XXXXXXX ,_______ ,XXXXXXX ,        XXXXXXX ,_______ ,XXXXXXX ,KC_F1   ,KC_F2   ,KC_F3   ,XXXXXXX ,_______ ,
   //├────────┼────────┼────────┼────────┼────┬───┴────┬───┼────────┼────────┤       ├────────┼────────┼───┬────┴───┬────┼────────┼────────┼────────┼────────┤
-     XXXXXXX ,_______ ,XXXXXXX ,_______ ,     _______ ,    KC_BTN1 ,KC_BTN2 ,        XXXXXXX ,XXXXXXX ,    _______ ,     KC_RALT ,XXXXXXX ,KC_RCTL ,XXXXXXX
+     XXXXXXX ,_______ ,XXXXXXX ,_______ ,     _______ ,    KC_BTN1 ,KC_BTN2 ,        XXXXXXX ,XXXXXXX ,    _______ ,     _______ ,XXXXXXX ,_______ ,XXXXXXX
   //└────────┴────────┴────────┴────────┘    └────────┘   └────────┴────────┘       └────────┴────────┘   └────────┘    └────────┴────────┴────────┴────────┘
   )
 
